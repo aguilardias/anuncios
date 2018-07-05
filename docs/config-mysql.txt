@@ -1,0 +1,40 @@
+-baixar driver. ex:mysql-connector-java-5.1.46
+
+-criar caminho: modules\system\layers\base\com\mysql\main
+
+-criar arquivo module.xml, conteúdo:
+<module xmlns="urn:jboss:module:1.3" name="com.mysql.driver">
+    <resources>
+        <resource-root path="mysql-connector-java-5.1.46.jar" />
+    </resources>
+    <dependencies>
+        <module name="javax.api"/>
+        <module name="javax.transaction.api"/>
+    </dependencies>
+</module>
+
+-no satandalone.xml, adicionar:
+<driver name="mysql" module="com.mysql">
+    <driver-class>com.mysql.jdbc.Driver</driver-class>
+</driver>
+
+-adicionar datasource:
+<datasource jta="true" jndi-name="java:jboss/datasources/reuse" pool-name="reuse" enabled="true" use-java-context="true" use-ccm="true">
+	<connection-url>jdbc:mysql://localhost:3306/reuse</connection-url>
+	<driver>mysql</driver>
+	<transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
+	<pool>
+		<min-pool-size>10</min-pool-size>
+		<max-pool-size>100</max-pool-size>
+		<prefill>true</prefill>
+	</pool>
+	<security>
+		<user-name>root</user-name>
+		<password>casa407</password>
+	</security>
+	<statement>
+		<prepared-statement-cache-size>32</prepared-statement-cache-size>
+		<share-prepared-statements>true</share-prepared-statements>
+	</statement>
+</datasource>
+

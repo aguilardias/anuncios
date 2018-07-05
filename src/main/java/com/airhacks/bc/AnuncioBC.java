@@ -1,16 +1,24 @@
 package com.airhacks.bc;
 
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
+import javax.inject.Inject;
 
-public class AnuncioBC {
+import org.demoiselle.jee.crud.AbstractBusiness;
 
-	@PersistenceContext
-	private EntityManager em;
+import br.dao.AnuncioDAO;
+import br.model.Anuncio;
 
-	public String consultar() {
-		System.out.println(em);
-		return "consultar2";
+public class AnuncioBC extends AbstractBusiness<Anuncio, Integer> {
+
+	@Inject
+	private AnuncioDAO anuncioDAO;
+
+	public String obter() {
+		System.out.println(dao.find(1));
+		return null;
+	}
+
+	public String search() {
+		return anuncioDAO.search();
 	}
 
 }

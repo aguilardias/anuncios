@@ -1,0 +1,1 @@
+https://docs.jboss.org/hibernate/search/5.5/reference/en-US/html_single/#search-architecture
