@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>br</groupId>
-	<artifactId>testeweb</artifactId>
+	<artifactId>anuncios</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<packaging>war</packaging>
 
@@ -44,7 +44,7 @@
 
 	</dependencies>
 	<build>
-		<finalName>testeweb</finalName>
+		<finalName>anuncios</finalName>
 	</build>
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
